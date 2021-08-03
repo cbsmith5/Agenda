@@ -13,19 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Agenda
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Notes : Page
     {
-        public MainPage()
+        public Notes()
         {
             this.InitializeComponent();
-
         }
 
         private void Home_click(object sender, RoutedEventArgs e)
@@ -46,18 +45,5 @@ namespace Agenda
         {
             this.Frame.Navigate(typeof(Notes));
         }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var position = await LocationManager.GetPosition();
-
-            RootObject myWeather = 
-                await OpenWeatherMapProxy.GetWeather(
-                    position.Coordinate.Latitude, position.Coordinate.Longitude);
-
-            ResultTextBlock.Text = myWeather.name + " - " + ((int)myWeather.main.temp).ToString() + " - " + myWeather.weather[0].description;
-
-        }
     }
 }
-

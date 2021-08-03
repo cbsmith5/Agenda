@@ -39,5 +39,9 @@ namespace Agenda
             this.Frame.Navigate(typeof(Calendar));
 
         }
+        private void Notes_click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Notes));
+        }
     }
 }

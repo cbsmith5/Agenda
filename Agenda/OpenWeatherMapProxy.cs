@@ -14,7 +14,7 @@ namespace Agenda
         public async static Task<RootObject> GetWeather(double lat, double lon)
         {
             var http = new HttpClient();
-            var response = await http.GetAsync("https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=imperial&appid=fe75335e7315f68743fbbc4ed585a84e");
+            var response = await http.GetAsync("https://api.openweathermap.org/data/2.5/weather?lat=35.6513&lon=-78.8336&units=imperial&appid=fe75335e7315f68743fbbc4ed585a84e");
             var result = await response.Content.ReadAsStringAsync();
             var serializer = new DataContractJsonSerializer(typeof(RootObject));
 
